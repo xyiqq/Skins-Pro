@@ -41,7 +41,7 @@
   --sp-sidebar-width:200px; --sp-app-padding:16px; --sp-stage-radius:26px;
   --sp-runtime-height:560px; --sp-runtime-min-height:560px;
   --sp-glass-bg:rgba(18, 22, 42, 0.72); --sp-panel-bg:rgba(18, 22, 42, 0.82); --sp-card-bg:rgba(20,28,54,.78);
-  --sp-base-texture:url("./base-texture.jpg"); --sp-stage-texture:url("./stage-background.jpg");
+  --sp-base-texture:url("./background.png"); --sp-stage-texture:url("./background.png");
   --sp-app-overlay:radial-gradient(circle at 18% 8%, rgba(255,255,255,.14), transparent 30%),radial-gradient(circle at 82% 16%, rgba(255,255,255,.12), transparent 34%),linear-gradient(135deg,#1B1230 0%,#37A8C8 52%,#1B1230 100%);
   --sp-stage-overlay:linear-gradient(90deg, rgba(7,10,24,.18) 0%, rgba(7,10,24,.04) 35%, rgba(7,10,24,.36) 100%);
   --sp-room-overlay:linear-gradient(180deg,transparent 28%,rgba(5,7,20,.78));
@@ -469,7 +469,9 @@ ha-card{overflow:hidden;border:0;background:transparent;box-shadow:none}.loading
 /* end skins-pro card theme port */
 
 /* skins-pro weather layout patch */
-.weather-with-meta { display:flex; align-items:flex-start; margin-top:var(--sp-space-md,12px); }
+.welcome-group .welcome .quote { display:none; }
+
+.weather-with-meta { display:flex; align-items:flex-start; margin-top:var(--sp-space-md,12px);  grid-area:unset; }
 .weather-state-icon { width:30px; height:30px; border-radius:var(--sp-radius-weather,10px); display:grid; place-items:center; background:var(--sp-weather-bg,rgba(128,128,128,.18)); color:var(--sp-text-alt,var(--sp-text-main)); flex-shrink:0; }
 .weather-block { margin-top:12px; cursor:pointer; width:100%; max-width:240px; flex-shrink:0; }
 .weather-current { display:flex; align-items:center; gap:var(--sp-space-sm,10px); }
