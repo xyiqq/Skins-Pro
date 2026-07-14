@@ -41,7 +41,7 @@
   --sp-sidebar-width:200px; --sp-app-padding:16px; --sp-stage-radius:24px;
   --sp-runtime-height:560px; --sp-runtime-min-height:560px;
   --sp-glass-bg:rgba(10, 14, 32, 0.72); --sp-panel-bg:rgba(10, 14, 32, 0.82);
-  --sp-base-texture:url("./background.jpg"); --sp-stage-texture:url("./background.jpg");
+  --sp-base-texture:url("./background.png"); --sp-stage-texture:url("./background.png");
   --sp-app-overlay:linear-gradient(135deg,#fafafa,#fafafa);
   --sp-stage-overlay:none;
   --sp-room-overlay:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.38));
@@ -685,10 +685,137 @@ button { font:inherit; }
 .devices > .device.device-off:nth-child(6n+6), .devices-page-grid > .device.device-off:nth-child(6n+6), .device.tone-brown.device-off .state-word { color:#E74C3C; font-weight:700; text-shadow:0 1px 4px rgba(0,0,0,.45); }
 .devices > .device.device-off:nth-child(6n+6), .devices-page-grid > .device.device-off:nth-child(6n+6), .device.tone-brown.device-off .status { background:rgba(240, 248, 255, 0.16); color:#F0F8FF; }
 .devices > .device.device-off:nth-child(6n+6), .devices-page-grid > .device.device-off:nth-child(6n+6), .device.tone-brown.device-off .item-img { box-shadow:0 8px 16px rgba(10, 14, 32, 0.14); border:2px solid rgba(240, 248, 255, 0.16); }
+/* skins-pro devices-filter + security layout patch */
+.filter-bar {
+  display:flex;
+  gap:var(--sp-space-sm);
+  align-items:center;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+.filter-select {
+  min-height:36px;
+  padding:0 var(--sp-space-lg) 0 var(--sp-space-sm);
+  border:var(--sp-border-width) solid var(--sp-border-glass);
+  border-radius:var(--sp-radius-pill);
+  background:var(--sp-glass-light, var(--sp-glass-bg));
+  color:var(--sp-text-stage, var(--sp-text-main, #1a1a1a));
+  font:inherit;
+  font-size:var(--sp-font-xs);
+  font-weight:600;
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  -webkit-appearance:none;
+  appearance:none;
+  outline:none;
+  cursor:pointer;
+  min-width:120px;
+  box-sizing:border-box;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpath fill='%232C2C2C' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 8px center;
+  background-size:14px;
+}
+.filter-select option {
+  color:var(--sp-text-stage, #2C2C2C);
+  background:var(--sp-panel-bg, #F5F0E8);
+}
+.action-btn {
+  min-height:36px;
+  box-sizing:border-box;
+  border:var(--sp-border-width) solid var(--sp-border-glass);
+  border-radius:var(--sp-radius-pill);
+  padding:0 14px;
+  background:var(--sp-glass-light, var(--sp-glass-bg));
+  color:var(--sp-text-stage, var(--sp-text-main, #1a1a1a));
+  cursor:pointer;
+  font:inherit;
+  font-size:var(--sp-font-xs);
+  font-weight:600;
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  transition:background .2s ease,color .2s ease;
+}
+.action-btn:hover {
+  background:var(--sp-accent-green-alpha, rgba(0,0,0,.08));
+  color:var(--sp-accent, var(--sp-text-stage, #1a1a1a));
+}
+
+.devices.security-grid {
+  display:flex;
+  flex-direction:column;
+  gap:var(--sp-space-md);
+  grid-template-columns:unset;
+}
+.security-cameras {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:var(--sp-space-sm);
+}
+.security-devices {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+  gap:var(--sp-space-sm);
+}
+.security-grid {
+  display:flex;
+  flex-direction:column;
+  gap:var(--sp-space-md);
+}
+
+.mc-app[data-view="security"] .page-shell,
+.mc-app[data-view="scenes"] .page-shell {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+.mc-app[data-view="security"] .camera-card,
+.mc-app[data-view="security"] .security-grid .device,
+.mc-app[data-view="scenes"] .devices-page-grid .device {
+  box-shadow: none !important;
+  backdrop-filter: blur(14px) saturate(130%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(130%) !important;
+  background: var(--sp-glass-bg, rgba(245, 240, 232, 0.62)) !important;
+  border: 1px solid var(--sp-border-glass, rgba(139, 115, 85, 0.28)) !important;
+  color: var(--sp-text-stage, var(--sp-text-dark, #2C2C2C)) !important;
+}
+.mc-app[data-view="security"] .security-grid .device .item-img,
+.mc-app[data-view="scenes"] .devices-page-grid .device .item-img {
+  box-shadow: none !important;
+  border: 2px solid var(--sp-border-device, rgba(139, 115, 85, 0.28)) !important;
+}
+.mc-app[data-view="security"] .camera-card .device-name,
+.mc-app[data-view="security"] .camera-card .muted,
+.mc-app[data-view="security"] .camera-card .status,
+.mc-app[data-view="security"] .security-grid .device .device-name,
+.mc-app[data-view="security"] .security-grid .device .state-word,
+.mc-app[data-view="security"] .security-grid .device .muted,
+.mc-app[data-view="scenes"] .devices-page-grid .device .device-name,
+.mc-app[data-view="scenes"] .devices-page-grid .device .state-word,
+.mc-app[data-view="scenes"] .devices-page-grid .device .muted {
+  color: var(--sp-text-stage, var(--sp-text-dark, #2C2C2C)) !important;
+  text-shadow: none !important;
+}
+.mc-app[data-view="security"] .security-grid .device .status,
+.mc-app[data-view="scenes"] .devices-page-grid .device .status {
+  background: rgba(0, 0, 0, 0.10) !important;
+  color: var(--sp-text-stage, var(--sp-text-dark, #2C2C2C)) !important;
+}
+.mc-app[data-view="scenes"] .devices-page-grid .device .muted,
+.mc-app[data-view="security"] .camera-card .muted,
+.mc-app[data-view="security"] .security-grid .device .muted {
+  color: var(--sp-text-stage-muted, var(--sp-text-muted, rgba(44, 44, 44, 0.72))) !important;
+}
+/* end skins-pro devices-filter + security layout patch */
+
 /* end skins-pro card theme port */
 
 /* skins-pro weather layout patch */
-.weather-with-meta { display:flex; align-items:flex-start; margin-top:var(--sp-space-md,12px); }
+.welcome-group .welcome .quote { display:none; }
+
+.weather-with-meta { display:flex; align-items:flex-start; margin-top:var(--sp-space-md,12px);  grid-area:unset; }
 /* end skins-pro weather layout patch */
 
 /* skins-pro sidebar layout patch */
@@ -1002,4 +1129,76 @@ button { font:inherit; }
     max-width: 90px;
   }
 }
+
+/* skins-pro editor contrast patch */
+/* Edit dashboard panels must stay readable even when card-theme forces dark stage text. */
+.sp-wrap {
+  color: #f3efe6 !important;
+  background: rgba(0, 0, 0, 0.28);
+  min-height: 100%;
+  box-sizing: border-box;
+}
+.sp-wrap .sp-card,
+.sp-card {
+  background: rgba(28, 30, 38, 0.94) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  color: #f3efe6 !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28) !important;
+}
+.sp-wrap .sp-card h3,
+.sp-card h3 {
+  color: #f7f3ea !important;
+  text-shadow: none !important;
+}
+.sp-wrap .sp-card p,
+.sp-card p,
+.sp-wrap .sp-card label span,
+.sp-card label span,
+.sp-wrap .sp-card-row .sp-field span,
+.sp-card-row .sp-field span,
+.sp-wrap .sp-add,
+.sp-add {
+  color: rgba(243, 239, 230, 0.82) !important;
+  text-shadow: none !important;
+}
+.sp-wrap .sp-card input:not([type="checkbox"]),
+.sp-wrap .sp-card select,
+.sp-card input:not([type="checkbox"]),
+.sp-card select {
+  background: rgba(255, 255, 255, 0.10) !important;
+  color: #f7f3ea !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.sp-wrap .sp-card select option,
+.sp-card select option {
+  background: #1e2028;
+  color: #ffffff;
+}
+.sp-wrap .sp-card button,
+.sp-card button,
+.sp-wrap .sp-del,
+.sp-del {
+  background: rgba(255, 255, 255, 0.10) !important;
+  color: #f7f3ea !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+}
+.sp-wrap .sp-card button:hover,
+.sp-card button:hover,
+.sp-wrap .sp-del:hover,
+.sp-del:hover,
+.sp-wrap .sp-add:hover,
+.sp-add:hover {
+  background: rgba(255, 255, 255, 0.16) !important;
+}
+.sp-wrap .sp-add,
+.sp-add {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px dashed rgba(255, 255, 255, 0.28) !important;
+}
+.sp-strategy-info {
+  color: #f3efe6 !important;
+}
+/* end skins-pro editor contrast patch */
 
