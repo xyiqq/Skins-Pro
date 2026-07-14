@@ -49,8 +49,8 @@
   --sp-panel-bg:rgba(17, 29, 52, 0.82);
   --sp-card-bg:rgba(20,34,61,.82);
 
-  --sp-base-texture:url("./background.jpg");
-  --sp-stage-texture:url("./background.jpg");
+  --sp-base-texture:url("./background.png");
+  --sp-stage-texture:url("./background.png");
 
   --sp-app-overlay:
     radial-gradient(circle at 18% 8%, rgba(231,197,106,.18), transparent 30%),
@@ -956,7 +956,9 @@ button { font:inherit; }
 /* end skins-pro card theme port */
 
 /* skins-pro weather layout patch */
-.weather-with-meta { display:flex; align-items:flex-start; margin-top:var(--sp-space-md,12px); }
+.welcome-group .welcome .quote { display:none; }
+
+.weather-with-meta { display:flex; align-items:flex-start; margin-top:var(--sp-space-md,12px);  grid-area:unset; }
 .weather-state-icon { width:30px; height:30px; border-radius:var(--sp-radius-weather,10px); display:grid; place-items:center; background:var(--sp-weather-bg,rgba(128,128,128,.18)); color:var(--sp-text-alt,var(--sp-text-main)); flex-shrink:0; }
 .weather-current { display:flex; align-items:center; gap:var(--sp-space-sm,10px); }
 .weather-current-info { display:flex; flex-direction:column; gap:1px; min-width:0; }
