@@ -815,6 +815,7 @@ button { font:inherit; }
 
 
 
+
 /* skins-pro weather layout patch */
 .welcome-group .welcome .quote { display:none; }
 
@@ -1134,17 +1135,17 @@ button { font:inherit; }
 }
 
 
-/* skins-pro chinese-odyssey-pandora polish v1 */
-/* 月光宝盒：半透明磨砂侧栏透出夜沙漠背景 + 月光银蓝/暗金可读字；欢迎区用深阴影 */
+/* skins-pro chinese-odyssey-pandora polish v2 */
+/* 月光宝盒：半透明磨砂侧栏透出夜沙漠背景 + 月光银蓝/暗金可读字；右侧卡去重阴影 */
 :host {
   --sp-app-overlay: none !important;
-  --sp-sidebar-bg: rgba(10, 18, 34, 0.42) !important;
+  --sp-sidebar-bg: rgba(10, 18, 34, 0.40) !important;
   --sp-sidebar-text: #E8F4FC !important;
   --sp-sidebar-text-muted: rgba(232, 244, 252, 0.90) !important;
   --sp-sidebar-active-bg: rgba(168, 212, 232, 0.24) !important;
   --sp-sidebar-active-text: #F0D78C !important;
-  --sp-glass-bg: rgba(12, 20, 36, 0.48) !important;
-  --sp-panel-bg: rgba(12, 20, 36, 0.52) !important;
+  --sp-glass-bg: rgba(12, 20, 36, 0.46) !important;
+  --sp-panel-bg: rgba(12, 20, 36, 0.50) !important;
   --sp-text-primary: #E8F4FC !important;
   --sp-text-main: #E8F4FC !important;
   --sp-text-muted: rgba(232, 244, 252, 0.78) !important;
@@ -1174,11 +1175,11 @@ button { font:inherit; }
   box-shadow: none !important;
 }
 .sidebar {
-  background: linear-gradient(180deg, rgba(16, 28, 48, 0.40), rgba(8, 14, 28, 0.52)) !important;
+  background: linear-gradient(180deg, rgba(16, 28, 48, 0.38), rgba(8, 14, 28, 0.50)) !important;
   border: 1px solid rgba(168, 212, 232, 0.34) !important;
-  box-shadow: inset 0 1px 0 rgba(168, 212, 232, 0.10) !important;
-  backdrop-filter: blur(28px) saturate(150%) !important;
-  -webkit-backdrop-filter: blur(28px) saturate(150%) !important;
+  box-shadow: inset 0 1px 0 rgba(168, 212, 232, 0.12) !important;
+  backdrop-filter: blur(30px) saturate(155%) !important;
+  -webkit-backdrop-filter: blur(30px) saturate(155%) !important;
 }
 .welcome h1,
 .welcome .quote,
@@ -1205,7 +1206,7 @@ button { font:inherit; }
 }
 .profile .meta .muted,
 .sidebar .muted {
-  color: rgba(232, 244, 252, 0.86) !important;
+  color: rgba(232, 244, 252, 0.88) !important;
   text-shadow: 0 1px 6px rgba(6, 12, 24, 0.45) !important;
   font-weight: 650 !important;
 }
@@ -1249,8 +1250,8 @@ button { font:inherit; }
 .panel-environment,
 .panel-scenes,
 .maintenance-card {
-  background: linear-gradient(145deg, rgba(168, 212, 232, 0.16), rgba(12, 20, 36, 0.52)) !important;
-  border: 1px solid rgba(168, 212, 232, 0.28) !important;
+  background: linear-gradient(145deg, rgba(168, 212, 232, 0.14), rgba(12, 20, 36, 0.48)) !important;
+  border: 1px solid rgba(168, 212, 232, 0.26) !important;
   backdrop-filter: blur(22px) saturate(145%) !important;
   -webkit-backdrop-filter: blur(22px) saturate(145%) !important;
   box-shadow: none !important;
@@ -1269,4 +1270,5 @@ button { font:inherit; }
 .mc-app[data-view="rooms"] .room {
   box-shadow: none !important;
 }
-/* end skins-pro chinese-odyssey-pandora polish v1 */
+/* end skins-pro chinese-odyssey-pandora polish v2 */
+
