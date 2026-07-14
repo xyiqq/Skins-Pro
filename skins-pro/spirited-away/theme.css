@@ -814,6 +814,7 @@ button { font:inherit; }
 
 
 
+
 /* skins-pro weather layout patch */
 .welcome-group .welcome .quote { display:none; }
 
@@ -1132,44 +1133,62 @@ button { font:inherit; }
   }
 }
 
-/* skins-pro spirited-away polish v1 */
-/* 汤屋暖红磨砂侧栏，贴合首页玻璃卡；米白字可读 */
+/* skins-pro spirited-away polish v2 */
+/* 侧栏透出汤屋夜景：半透明夜色磨砂 + 灯笼暖边，贴近背景图 */
 :host {
-  --sp-sidebar-bg: linear-gradient(165deg, rgba(194, 58, 74, 0.28), rgba(20, 24, 32, 0.70) 48%, rgba(42, 28, 36, 0.72)) !important;
-  --sp-sidebar-text: #F5E6C9 !important;
-  --sp-sidebar-text-muted: rgba(245, 230, 201, 0.82) !important;
-  --sp-sidebar-active-bg: rgba(194, 58, 74, 0.30) !important;
-  --sp-sidebar-active-text: #FF6B7A !important;
+  --sp-app-overlay: linear-gradient(180deg, rgba(12, 16, 28, 0.18), rgba(12, 16, 28, 0.08) 40%, rgba(18, 22, 34, 0.22)) !important;
+  --sp-stage-overlay: linear-gradient(90deg, rgba(8, 12, 24, 0.28), rgba(8, 12, 24, 0.06) 36%, rgba(8, 12, 24, 0.10) 68%, rgba(8, 12, 24, 0.32)) !important;
+  --sp-sidebar-bg: rgba(16, 20, 32, 0.34) !important;
+  --sp-sidebar-text: #FFF4E0 !important;
+  --sp-sidebar-text-muted: rgba(255, 244, 224, 0.86) !important;
+  --sp-sidebar-active-bg: rgba(255, 120, 64, 0.28) !important;
+  --sp-sidebar-active-text: #FFB07A !important;
+  --sp-glass-bg: rgba(16, 20, 32, 0.38) !important;
+  --sp-panel-bg: rgba(16, 20, 32, 0.42) !important;
+  --sp-card-bg: linear-gradient(145deg, rgba(255, 120, 64, 0.16), rgba(16, 20, 32, 0.40)) !important;
   --sp-shadow-glass: none !important;
   --sp-shadow-card: none !important;
+  --sp-shadow-md: none !important;
+  --sp-shadow-lg: none !important;
+}
+.mc-app {
+  background-color: transparent !important;
+  background-image: var(--sp-app-overlay), var(--sp-base-texture) !important;
+  background-size: cover, cover !important;
+  background-position: center, center !important;
+}
+.stage {
+  background-color: transparent !important;
+  box-shadow: none !important;
 }
 .sidebar {
-  background: linear-gradient(165deg, rgba(194, 58, 74, 0.26), rgba(20, 24, 32, 0.68) 52%, rgba(36, 24, 32, 0.70)) !important;
-  border: 1px solid rgba(194, 58, 74, 0.42) !important;
-  box-shadow: none !important;
-  backdrop-filter: blur(28px) saturate(160%) !important;
-  -webkit-backdrop-filter: blur(28px) saturate(160%) !important;
+  background: rgba(14, 18, 30, 0.32) !important;
+  border: 1px solid rgba(255, 168, 96, 0.34) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 200, 140, 0.12) !important;
+  backdrop-filter: blur(26px) saturate(145%) !important;
+  -webkit-backdrop-filter: blur(26px) saturate(145%) !important;
 }
 .profile .meta h3,
 .sidebar .profile h3 {
-  color: #F5E6C9 !important;
-  text-shadow: none !important;
+  color: #FFF4E0 !important;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45) !important;
   font-weight: 800 !important;
 }
 .profile .meta .muted,
 .sidebar .muted {
-  color: rgba(245, 230, 201, 0.78) !important;
-  text-shadow: none !important;
+  color: rgba(255, 220, 180, 0.82) !important;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.40) !important;
 }
 .profile-img {
-  border-color: rgba(194, 58, 74, 0.55) !important;
-  box-shadow: none !important;
+  border-color: rgba(255, 140, 80, 0.55) !important;
+  box-shadow: 0 0 14px rgba(255, 120, 64, 0.22) !important;
 }
 .nav-button,
 .sidebar .nav-button {
-  color: rgba(245, 230, 201, 0.88) !important;
+  color: rgba(255, 244, 224, 0.90) !important;
   font-weight: 800 !important;
   opacity: 1 !important;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.40) !important;
 }
 .nav-button ha-icon,
 .nav-button .icon,
@@ -1181,14 +1200,14 @@ button { font:inherit; }
 .nav-button.active,
 .sidebar .nav-button:hover,
 .sidebar .nav-button.active {
-  color: #FF6B7A !important;
-  background: rgba(194, 58, 74, 0.28) !important;
-  box-shadow: inset 0 0 0 1px rgba(194, 58, 74, 0.48) !important;
+  color: #FFD0A8 !important;
+  background: rgba(255, 120, 64, 0.26) !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 168, 96, 0.42), 0 0 18px rgba(255, 120, 64, 0.18) !important;
 }
 .sidebar-art {
   border-radius: 18px !important;
   overflow: hidden;
-  border: 1px solid rgba(194, 58, 74, 0.38);
+  border: 1px solid rgba(255, 168, 96, 0.32);
   box-shadow: none !important;
 }
 .glass-card,
@@ -1197,16 +1216,31 @@ button { font:inherit; }
 .panel-environment,
 .panel-scenes,
 .maintenance-card {
-  background: linear-gradient(145deg, rgba(194, 58, 74, 0.22), rgba(20, 24, 32, 0.58)) !important;
-  border: 1px solid rgba(194, 58, 74, 0.28) !important;
-  backdrop-filter: blur(22px) saturate(150%) !important;
-  -webkit-backdrop-filter: blur(22px) saturate(150%) !important;
+  background: rgba(14, 18, 30, 0.36) !important;
+  border: 1px solid rgba(255, 168, 96, 0.26) !important;
+  backdrop-filter: blur(22px) saturate(145%) !important;
+  -webkit-backdrop-filter: blur(22px) saturate(145%) !important;
   box-shadow: none !important;
-  color: #F5E6C9 !important;
+  color: #FFF4E0 !important;
 }
 .panel-scenes .scene,
 .scene {
   box-shadow: none !important;
 }
-/* end skins-pro spirited-away polish v1 */
+.devices .device,
+.devices-page-grid .device,
+.camera-card {
+  background: rgba(14, 18, 30, 0.34) !important;
+  border: 1px solid rgba(255, 168, 96, 0.22) !important;
+  box-shadow: none !important;
+  backdrop-filter: blur(18px) saturate(145%) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(145%) !important;
+  color: #FFF4E0 !important;
+}
+.devices .device.device-on,
+.devices-page-grid .device.device-on {
+  background: linear-gradient(145deg, rgba(255, 120, 64, 0.28), rgba(14, 18, 30, 0.40)) !important;
+  border-color: rgba(255, 140, 80, 0.40) !important;
+}
+/* end skins-pro spirited-away polish v2 */
 
