@@ -1132,8 +1132,8 @@ button { font:inherit; }
 }
 
 
-/* skins-pro tom-and-jerry polish v1 */
-/* 猫和老鼠：蓝黄红卡通磨砂侧栏+右侧卡；标准侧栏排版；去多余阴影 */
+/* skins-pro tom-and-jerry polish v2 */
+/* 猫和老鼠：卡通磨砂侧栏贴合房间色；decoration 方形；右侧卡去阴影统一 */
 :host {
   --sp-sidebar-width: 200px !important;
   --sp-stage-overlay: linear-gradient(90deg, transparent, transparent) !important;
@@ -1391,4 +1391,4 @@ button { font:inherit; }
   box-shadow: none !important;
   border: 1px solid rgba(52, 152, 219, 0.28) !important;
 }
-/* end skins-pro tom-and-jerry polish v1 */
+/* end skins-pro tom-and-jerry polish v2 */
