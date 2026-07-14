@@ -1,4 +1,25 @@
-﻿:host {
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1920" />
+  <title>战术中控已就绪 · 首页预览</title>
+  <style>
+    html, body { margin: 0; padding: 0; background: #eef1f8; font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; }
+    .preview-root { display: block; width: 1920px; margin: 0; }
+    .preview-root .mc-app {
+      height: 1080px !important;
+      min-height: 1080px !important;
+      max-height: 1080px !important;
+      overflow: hidden !important;
+    }
+    .preview-root .stage,
+    .preview-root .stage-grid {
+      height: 100% !important;
+      overflow: hidden !important;
+    }
+    .icon { width: 18px; height: 18px; display: inline-block; opacity: .85; }
+    .preview-root {
   --sp-text-primary:#2a221e;--sp-text-stage:#1a2238;--sp-text-stage-muted:rgba(26,34,56,.72);
   --sp-device-yellow:rgba(42, 34, 30, 0.38);
   --sp-device-green:rgba(138, 199, 255, 0.38);
@@ -599,7 +620,7 @@ button { font:inherit; }
 .env-value,.energy-value,.maintenance-value { color:var(--sp-text-primary); }
 .chip { color:var(--sp-text-primary); }
 /* skins-pro card theme port */
-:host {
+.preview-root {
   --sp-card-bg: linear-gradient(145deg, rgba(42, 34, 30, 0.32), rgba(11, 11, 11, 0.62));
   --sp-sidebar-bg: rgba(11, 11, 11, 0.88);
   --sp-sidebar-text: #2a221e;
@@ -1065,7 +1086,7 @@ button { font:inherit; }
 }
 
 @media (orientation: portrait) {
-  :host {
+  .preview-root {
     --sp-sidebar-width: 0;
     --sp-app-padding: 10px;
   }
@@ -1232,7 +1253,7 @@ button { font:inherit; }
 }
 
 @media (max-width: 480px) {
-  :host {
+  .preview-root {
     --sp-app-padding: 6px;
   }
   .page-body.single-column.energy-detail-page {
@@ -1263,7 +1284,7 @@ button { font:inherit; }
 
 /* skins-pro deltaforce polish v2 */
 /* 战术指挥部：侧栏极高对比白字；右侧 stage 暗带清零；磨砂战术卡贴合新青绿/琥珀 HUD 风 */
-:host {
+.preview-root {
   --sp-sidebar-width: 200px !important;
   --sp-base-texture: url("./background.png") !important;
   --sp-stage-texture: url("./background.png") !important;
@@ -1697,3 +1718,137 @@ button { font:inherit; }
   }
 }
 /* end skins-pro deltaforce polish v2 */
+
+  </style>
+</head>
+<body>
+  <div class="preview-root">
+    <div class="mc-app" data-view="home">
+      <aside class="sidebar">
+        <div class="profile">
+          <img class="profile-img" src="avatar.jpg" alt="James" />
+          <div>
+            <h3>James</h3>
+            <p class="muted">任务系统在线</p>
+          </div>
+        </div>
+        <nav class="menu">
+          <button class="nav-button active"><span class="icon">⌂</span> 首页</button>
+          <button class="nav-button"><span class="icon">⚡</span> 能源</button>
+          <button class="nav-button"><span class="icon">▣</span> 设备</button>
+          <button class="nav-button"><span class="icon">◎</span> 场景</button>
+          <button class="nav-button"><span class="icon">⌁</span> 自动化</button>
+          <button class="nav-button"><span class="icon">⌂</span> 房间</button>
+          <button class="nav-button"><span class="icon">◉</span> 安全</button>
+        </nav>
+        <div class="sidebar-art"><img src="decoration.png" alt="装饰" /></div>
+      </aside>
+
+      <main class="stage">
+        <div class="stage-grid">
+          <div class="welcome-group">
+            <section class="welcome">
+              <h1>战术中控已就绪</h1>
+              <p class="quote">Delta Force 战术智能空间</p>
+            </section>
+            <div class="weather-block">
+              <div class="weather-current">
+                <div class="weather-state-icon">☀</div>
+                <div class="weather-current-info">
+                  <div class="weather-current-temp">19°C</div>
+                  <div class="weather-current-hl">12° / 24°</div>
+                  <div class="weather-current-cond">晴 · 微风</div>
+                </div>
+              </div>
+              <div class="weather-forecast">
+                <div class="forecast-day"><span class="forecast-weekday">周一</span><span class="forecast-icon">☀</span><span class="forecast-high">22°</span><span class="forecast-low">14°</span></div>
+                <div class="forecast-day"><span class="forecast-weekday">周二</span><span class="forecast-icon">⛅</span><span class="forecast-high">20°</span><span class="forecast-low">13°</span></div>
+                <div class="forecast-day"><span class="forecast-weekday">周三</span><span class="forecast-icon">☁</span><span class="forecast-high">18°</span><span class="forecast-low">12°</span></div>
+                <div class="forecast-day"><span class="forecast-weekday">周四</span><span class="forecast-icon">🌧</span><span class="forecast-high">16°</span><span class="forecast-low">11°</span></div>
+                <div class="forecast-day"><span class="forecast-weekday">周五</span><span class="forecast-icon">☀</span><span class="forecast-high">21°</span><span class="forecast-low">13°</span></div>
+              </div>
+            </div>
+          </div>
+
+          <section class="bottom-stack">
+            <section class="bottom-block bottom-devices">
+              <div class="section-title"><h2>设备</h2><p class="muted">快捷控制</p></div>
+              <div class="devices">
+                <button class="device device-on-yellow">
+                  <div class="device-top"><img class="item-img" src="icon-light.png" alt="" /><div class="tag-stack"><span class="status">ON</span></div></div>
+                  <div class="device-copy"><div class="device-name">客厅灯</div><div class="state-word">80%</div></div>
+                  <div class="control-row"><span class="muted">灯光</span><span class="switch on"></span></div>
+                </button>
+                <button class="device device-on-blue">
+                  <div class="device-top"><img class="item-img" src="icon-ac.png" alt="" /><div class="tag-stack"><span class="status">ON</span></div></div>
+                  <div class="device-copy"><div class="device-name">空调</div><div class="state-word">25°C</div></div>
+                  <div class="control-row"><span class="muted">气候</span><span class="switch on"></span></div>
+                </button>
+                <button class="device device-off tone-purple">
+                  <div class="device-top"><img class="item-img" src="icon-lock.png" alt="" /><div class="tag-stack"><span class="status">OFF</span></div></div>
+                  <div class="device-copy"><div class="device-name">门锁</div><div class="state-word">已上锁</div></div>
+                  <div class="control-row"><span class="muted">安全</span><span class="switch"></span></div>
+                </button>
+                <button class="device device-off tone-green">
+                  <div class="device-top"><img class="item-img" src="icon-fan.png" alt="" /><div class="tag-stack"><span class="status">OFF</span></div></div>
+                  <div class="device-copy"><div class="device-name">扫地机</div><div class="state-word">待机</div></div>
+                  <div class="control-row"><span class="muted">清洁</span><span class="switch"></span></div>
+                </button>
+                <button class="device device-off tone-red">
+                  <div class="device-top"><img class="item-img" src="icon-speaker.png" alt="" /><div class="tag-stack"><span class="status">OFF</span></div></div>
+                  <div class="device-copy"><div class="device-name">音响</div><div class="state-word">暂停</div></div>
+                  <div class="control-row"><span class="muted">媒体</span><span class="switch"></span></div>
+                </button>
+              </div>
+            </section>
+            <section class="bottom-block">
+              <div class="section-title"><h2>房间</h2><p class="muted">视窗快照</p></div>
+              <div class="rooms">
+                <button class="room"><img src="room-living.png" alt="" /><div class="room-label"><h3>客厅</h3><p class="muted">4 设备在线</p></div></button>
+                <button class="room"><img src="room-bedroom.png" alt="" /><div class="room-label"><h3>卧室</h3><p class="muted">2 设备在线</p></div></button>
+                <button class="room"><img src="room-kitchen.png" alt="" /><div class="room-label"><h3>厨房</h3><p class="muted">3 设备在线</p></div></button>
+                <button class="room"><img src="room-garden.png" alt="" /><div class="room-label"><h3>花园</h3><p class="muted">1 设备在线</p></div></button>
+              </div>
+            </section>
+          </section>
+
+          <aside class="side">
+            <section class="time-card">
+              <div>
+                <div class="time-main">09:00</div>
+                <div class="time-sub">2026年7月2日 星期四</div>
+              </div>
+              <div class="time-icon">🕘</div>
+            </section>
+            <section class="glass-card">
+              <div class="section-title"><h2>环境信息</h2></div>
+              <div class="env-list">
+                <div class="env-row"><span class="dot temp">🌡</span><span class="muted">室内温度</span><span class="env-value">25°C</span></div>
+                <div class="env-row"><span class="dot hum">💧</span><span class="muted">湿度</span><span class="env-value">65%</span></div>
+                <div class="env-row"><span class="dot pm">🍃</span><span class="muted">PM2.5</span><span class="env-value">12</span></div>
+              </div>
+            </section>
+            <section class="glass-card panel-energy">
+              <div class="section-title"><h2>今日用电</h2></div>
+              <div class="energy-value">12.8<small> kWh</small></div>
+              <div class="bars">
+                <span class="energy-bar energy-bar-level-2"></span><span class="energy-bar energy-bar-level-3"></span><span class="energy-bar energy-bar-level-4"></span><span class="energy-bar energy-bar-level-5"></span><span class="energy-bar energy-bar-level-6"></span><span class="energy-bar energy-bar-level-7"></span><span class="energy-bar energy-bar-level-8"></span><span class="energy-bar energy-bar-level-9"></span><span class="energy-bar energy-bar-level-10"></span><span class="energy-bar energy-bar-level-6"></span><span class="energy-bar energy-bar-level-4"></span><span class="energy-bar energy-bar-level-3"></span>
+              </div>
+              <div class="energy-footer"><span class="muted">较昨日</span><span class="down">-8%</span></div>
+            </section>
+            <section class="glass-card panel-scenes">
+              <div class="section-title"><h2>场景</h2><p class="muted">模式</p></div>
+              <div class="scene-grid">
+                <button class="scene morning"><span class="scene-icon">🌅</span>早安</button>
+                <button class="scene night"><span class="scene-icon">🌙</span>晚安</button>
+                <button class="scene movie"><span class="scene-icon">🎬</span>观影</button>
+                <button class="scene game"><span class="scene-icon">🎮</span>游戏</button>
+              </div>
+            </section>
+          </aside>
+        </div>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
