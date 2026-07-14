@@ -905,3 +905,75 @@ button { font:inherit; }
   }
 }
 
+/* skins-pro editor contrast patch */
+/* Edit dashboard panels must stay readable even when card-theme forces dark stage text. */
+.sp-wrap {
+  color: #f3efe6 !important;
+  background: rgba(0, 0, 0, 0.28);
+  min-height: 100%;
+  box-sizing: border-box;
+}
+.sp-wrap .sp-card,
+.sp-card {
+  background: rgba(28, 30, 38, 0.94) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  color: #f3efe6 !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28) !important;
+}
+.sp-wrap .sp-card h3,
+.sp-card h3 {
+  color: #f7f3ea !important;
+  text-shadow: none !important;
+}
+.sp-wrap .sp-card p,
+.sp-card p,
+.sp-wrap .sp-card label span,
+.sp-card label span,
+.sp-wrap .sp-card-row .sp-field span,
+.sp-card-row .sp-field span,
+.sp-wrap .sp-add,
+.sp-add {
+  color: rgba(243, 239, 230, 0.82) !important;
+  text-shadow: none !important;
+}
+.sp-wrap .sp-card input:not([type="checkbox"]),
+.sp-wrap .sp-card select,
+.sp-card input:not([type="checkbox"]),
+.sp-card select {
+  background: rgba(255, 255, 255, 0.10) !important;
+  color: #f7f3ea !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.sp-wrap .sp-card select option,
+.sp-card select option {
+  background: #1e2028;
+  color: #ffffff;
+}
+.sp-wrap .sp-card button,
+.sp-card button,
+.sp-wrap .sp-del,
+.sp-del {
+  background: rgba(255, 255, 255, 0.10) !important;
+  color: #f7f3ea !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+}
+.sp-wrap .sp-card button:hover,
+.sp-card button:hover,
+.sp-wrap .sp-del:hover,
+.sp-del:hover,
+.sp-wrap .sp-add:hover,
+.sp-add:hover {
+  background: rgba(255, 255, 255, 0.16) !important;
+}
+.sp-wrap .sp-add,
+.sp-add {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px dashed rgba(255, 255, 255, 0.28) !important;
+}
+.sp-strategy-info {
+  color: #f3efe6 !important;
+}
+/* end skins-pro editor contrast patch */
+
