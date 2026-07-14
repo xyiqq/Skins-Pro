@@ -930,7 +930,7 @@ button { font:inherit; }
   border:var(--sp-border-width) solid var(--sp-border-glass);
   border-radius:var(--sp-radius-pill);
   background:var(--sp-glass-light, var(--sp-glass-bg));
-  color:var(--sp-text-stage, var(--sp-text-main, #1a1a1a));
+  color:var(--sp-text-stage, var(--sp-text-main, #FFC0D4));
   font:inherit;
   font-size:var(--sp-font-xs);
   font-weight:600;
@@ -948,7 +948,7 @@ button { font:inherit; }
   background-size:14px;
 }
 .filter-select option {
-  color:var(--sp-text-stage, #2C2C2C);
+  color:var(--sp-text-stage, #FFC0D4);
   background:var(--sp-panel-bg, #F5F0E8);
 }
 .action-btn {
@@ -958,7 +958,7 @@ button { font:inherit; }
   border-radius:var(--sp-radius-pill);
   padding:0 14px;
   background:var(--sp-glass-light, var(--sp-glass-bg));
-  color:var(--sp-text-stage, var(--sp-text-main, #1a1a1a));
+  color:var(--sp-text-stage, var(--sp-text-main, #FFC0D4));
   cursor:pointer;
   font:inherit;
   font-size:var(--sp-font-xs);
@@ -968,8 +968,8 @@ button { font:inherit; }
   transition:background .2s ease,color .2s ease;
 }
 .action-btn:hover {
-  background:var(--sp-accent-green-alpha, rgba(0,0,0,.08));
-  color:var(--sp-accent, var(--sp-text-stage, #1a1a1a));
+  background:var(--sp-accent-alpha, var(--sp-accent-green-alpha, rgba(0,0,0,.08)));
+  color:var(--sp-accent, var(--sp-text-stage, #FFC0D4));
 }
 
 .devices.security-grid {
@@ -1010,7 +1010,7 @@ button { font:inherit; }
   -webkit-backdrop-filter: blur(14px) saturate(130%) !important;
   background: var(--sp-glass-bg, rgba(245, 240, 232, 0.62)) !important;
   border: 1px solid var(--sp-border-glass, rgba(139, 115, 85, 0.28)) !important;
-  color: var(--sp-text-stage, var(--sp-text-dark, #2C2C2C)) !important;
+  color: var(--sp-text-stage, var(--sp-text-dark, #FFC0D4)) !important;
 }
 .mc-app[data-view="security"] .security-grid .device .item-img,
 .mc-app[data-view="scenes"] .devices-page-grid .device .item-img {
@@ -1026,13 +1026,13 @@ button { font:inherit; }
 .mc-app[data-view="scenes"] .devices-page-grid .device .device-name,
 .mc-app[data-view="scenes"] .devices-page-grid .device .state-word,
 .mc-app[data-view="scenes"] .devices-page-grid .device .muted {
-  color: var(--sp-text-stage, var(--sp-text-dark, #2C2C2C)) !important;
+  color: var(--sp-text-stage, var(--sp-text-dark, #FFC0D4)) !important;
   text-shadow: none !important;
 }
 .mc-app[data-view="security"] .security-grid .device .status,
 .mc-app[data-view="scenes"] .devices-page-grid .device .status {
   background: rgba(0, 0, 0, 0.10) !important;
-  color: var(--sp-text-stage, var(--sp-text-dark, #2C2C2C)) !important;
+  color: var(--sp-text-stage, var(--sp-text-dark, #FFC0D4)) !important;
 }
 .mc-app[data-view="scenes"] .devices-page-grid .device .muted,
 .mc-app[data-view="security"] .camera-card .muted,
@@ -1040,6 +1040,7 @@ button { font:inherit; }
   color: var(--sp-text-stage-muted, var(--sp-text-muted, rgba(44, 44, 44, 0.72))) !important;
 }
 /* end skins-pro devices-filter + security layout patch */
+
 
 /* end skins-pro card theme port */
 
