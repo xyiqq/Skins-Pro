@@ -1416,7 +1416,7 @@ button { font:inherit; }
 /* 金铲铲/云顶：去掉右侧暗带阴影；金黄电竞磨砂侧栏+右侧卡；场景/安全高对比 */
 :host {
   --sp-sidebar-width: 216px !important;
-  --sp-stage-overlay: none !important;
+  --sp-stage-overlay: linear-gradient(90deg, transparent, transparent) !important;
   --sp-app-overlay:
     radial-gradient(circle at 16% 10%, rgba(255, 214, 107, 0.16), transparent 32%),
     radial-gradient(circle at 88% 18%, rgba(46, 139, 255, 0.14), transparent 36%),
