@@ -1111,3 +1111,188 @@ button { font:inherit; }
 }
 /* end skins-pro red-smart-home polish v2 */
 
+/* skins-pro red-smart-home polish v3 */
+/* 房间/设备/场景页：提高文字对比；房间卡叠照片用奶油白+深阴影，玻璃卡用深红 */
+
+/* —— 房间页 —— */
+.mc-app[data-view="rooms"] .page-header h1 {
+  color: #5C1018 !important;
+  text-shadow: 0 1px 4px rgba(255, 248, 240, 0.95), 0 2px 12px rgba(255, 248, 240, 0.70) !important;
+  font-weight: 800 !important;
+}
+.mc-app[data-view="rooms"] .page-header .muted,
+.mc-app[data-view="rooms"] .page-header .quote,
+.mc-app[data-view="rooms"] .quote {
+  color: rgba(92, 16, 24, 0.88) !important;
+  text-shadow: 0 1px 4px rgba(255, 248, 240, 0.90) !important;
+  font-weight: 700 !important;
+}
+.mc-app[data-view="rooms"] .chip,
+.mc-app[data-view="rooms"] .chip-group .chip {
+  color: #5C1018 !important;
+  background: rgba(255, 248, 240, 0.72) !important;
+  border-color: rgba(193, 39, 45, 0.28) !important;
+  font-weight: 700 !important;
+  text-shadow: none !important;
+}
+.mc-app[data-view="rooms"] .chip.active {
+  color: #5C1018 !important;
+  background: rgba(193, 39, 45, 0.18) !important;
+  border-color: rgba(212, 168, 75, 0.50) !important;
+}
+
+/* 房间卡标签叠在照片上：奶油白 + 深色 text-shadow（不用暗金字） */
+.mc-app[data-view="rooms"] .room-label,
+.mc-app[data-view="rooms"] .room-label h3,
+.mc-app[data-view="rooms"] .room .room-label,
+.mc-app[data-view="rooms"] .room .room-label h3,
+.panel-rooms .room-label,
+.panel-rooms .room-label h3,
+.rooms .room-label,
+.rooms .room-label h3 {
+  color: #FFF8F0 !important;
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.85),
+    0 2px 10px rgba(0, 0, 0, 0.72),
+    0 0 18px rgba(0, 0, 0, 0.45) !important;
+  font-weight: 800 !important;
+}
+.mc-app[data-view="rooms"] .room-label .muted,
+.mc-app[data-view="rooms"] .room .room-label .muted,
+.panel-rooms .room-label .muted,
+.rooms .room-label .muted {
+  color: rgba(255, 248, 240, 0.94) !important;
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.80),
+    0 2px 8px rgba(0, 0, 0, 0.65) !important;
+  font-weight: 700 !important;
+}
+
+/* —— 设备页：浅色玻璃卡上用深红高对比 —— */
+.mc-app[data-view="devices"] .page-header,
+.mc-app[data-view="devices"] .page-header * {
+  color: #5C1018 !important;
+  text-shadow: 0 1px 4px rgba(255, 248, 240, 0.90) !important;
+}
+.mc-app[data-view="devices"] .page-header h1 {
+  font-weight: 800 !important;
+}
+.mc-app[data-view="devices"] .page-header .muted,
+.mc-app[data-view="devices"] .page-header .quote {
+  color: rgba(92, 16, 24, 0.86) !important;
+  font-weight: 700 !important;
+}
+.mc-app[data-view="devices"] .device-name,
+.mc-app[data-view="devices"] .state-word,
+.mc-app[data-view="devices"] .devices-page-grid .device-name,
+.mc-app[data-view="devices"] .devices-page-grid .state-word,
+.mc-app[data-view="devices"] .devices .device-name,
+.mc-app[data-view="devices"] .devices .state-word {
+  color: #5C1018 !important;
+  text-shadow: 0 1px 3px rgba(255, 248, 240, 0.85) !important;
+  font-weight: 800 !important;
+}
+.mc-app[data-view="devices"] .muted,
+.mc-app[data-view="devices"] .device .muted,
+.mc-app[data-view="devices"] .devices-page-grid .muted,
+.mc-app[data-view="devices"] .camera-card .muted {
+  color: rgba(92, 16, 24, 0.82) !important;
+  text-shadow: 0 1px 3px rgba(255, 248, 240, 0.80) !important;
+  font-weight: 700 !important;
+}
+.mc-app[data-view="devices"] .status,
+.mc-app[data-view="devices"] .device .status,
+.mc-app[data-view="devices"] .count-tag {
+  color: #5C1018 !important;
+  background: rgba(92, 16, 24, 0.12) !important;
+  font-weight: 700 !important;
+}
+.mc-app[data-view="devices"] .chip,
+.mc-app[data-view="devices"] .chip-group .chip {
+  color: #5C1018 !important;
+  background: rgba(255, 248, 240, 0.72) !important;
+  border-color: rgba(193, 39, 45, 0.28) !important;
+  font-weight: 700 !important;
+  text-shadow: none !important;
+}
+.mc-app[data-view="devices"] .chip.active {
+  color: #5C1018 !important;
+  background: rgba(193, 39, 45, 0.18) !important;
+}
+/* 筛选区文字 */
+.mc-app[data-view="devices"] .filter-bar,
+.mc-app[data-view="devices"] .filter-bar *,
+.mc-app[data-view="devices"] .filter-select,
+.mc-app[data-view="devices"] .action-btn {
+  color: #5C1018 !important;
+  font-weight: 700 !important;
+}
+.mc-app[data-view="devices"] .filter-select,
+.mc-app[data-view="devices"] .action-btn {
+  background: rgba(255, 248, 240, 0.78) !important;
+  border-color: rgba(193, 39, 45, 0.28) !important;
+  text-shadow: none !important;
+}
+.mc-app[data-view="devices"] .filter-select option {
+  color: #5C1018 !important;
+  background: #FFF8F0 !important;
+}
+
+/* —— 场景页：浅色玻璃卡上深红字 + 图标色 —— */
+.mc-app[data-view="scenes"] .page-header,
+.mc-app[data-view="scenes"] .page-header * {
+  color: #5C1018 !important;
+  text-shadow: 0 1px 4px rgba(255, 248, 240, 0.90) !important;
+}
+.mc-app[data-view="scenes"] .page-header h1 {
+  font-weight: 800 !important;
+}
+.mc-app[data-view="scenes"] .page-header .muted,
+.mc-app[data-view="scenes"] .page-header .quote {
+  color: rgba(92, 16, 24, 0.86) !important;
+  font-weight: 700 !important;
+}
+.mc-app[data-view="scenes"] .scene,
+.mc-app[data-view="scenes"] .scenes-page,
+.mc-app[data-view="scenes"] .scenes-page .scene,
+.mc-app[data-view="scenes"] .panel-scenes .scene,
+.mc-app[data-view="scenes"] .devices-page-grid .device {
+  color: #5C1018 !important;
+}
+.mc-app[data-view="scenes"] .scene .device-name,
+.mc-app[data-view="scenes"] .scene h3,
+.mc-app[data-view="scenes"] .scene .title,
+.mc-app[data-view="scenes"] .scenes-page .device-name,
+.mc-app[data-view="scenes"] .scenes-page h3,
+.mc-app[data-view="scenes"] .devices-page-grid .device-name,
+.mc-app[data-view="scenes"] .devices-page-grid .state-word {
+  color: #5C1018 !important;
+  text-shadow: 0 1px 3px rgba(255, 248, 240, 0.85) !important;
+  font-weight: 800 !important;
+}
+.mc-app[data-view="scenes"] .scene .muted,
+.mc-app[data-view="scenes"] .scenes-page .muted,
+.mc-app[data-view="scenes"] .panel-scenes .muted,
+.mc-app[data-view="scenes"] .devices-page-grid .muted {
+  color: rgba(92, 16, 24, 0.82) !important;
+  text-shadow: 0 1px 3px rgba(255, 248, 240, 0.80) !important;
+  font-weight: 700 !important;
+}
+.mc-app[data-view="scenes"] .scene ha-icon,
+.mc-app[data-view="scenes"] .scene .icon,
+.mc-app[data-view="scenes"] .scenes-page ha-icon,
+.mc-app[data-view="scenes"] .scenes-page .icon,
+.mc-app[data-view="scenes"] .devices-page-grid .device ha-icon,
+.mc-app[data-view="scenes"] .devices-page-grid .device .icon {
+  color: #C1272D !important;
+  opacity: 1 !important;
+}
+.mc-app[data-view="scenes"] .chip,
+.mc-app[data-view="scenes"] .chip-group .chip {
+  color: #5C1018 !important;
+  background: rgba(255, 248, 240, 0.72) !important;
+  border-color: rgba(193, 39, 45, 0.28) !important;
+  font-weight: 700 !important;
+}
+/* end skins-pro red-smart-home polish v3 */
+
