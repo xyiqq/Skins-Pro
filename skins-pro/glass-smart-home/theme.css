@@ -709,7 +709,9 @@ button { font:inherit; }
 /* end skins-pro card theme port */
 
 /* skins-pro weather layout patch */
-.weather-with-meta { display:flex; align-items:flex-start; margin-top:var(--sp-space-md,12px); }
+.welcome-group .welcome .quote { display:none; }
+
+.weather-with-meta { display:flex; align-items:flex-start; margin-top:var(--sp-space-md,12px);  grid-area:unset; }
 /* end skins-pro weather layout patch */
 
 /* skins-pro sidebar layout patch */
