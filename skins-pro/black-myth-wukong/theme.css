@@ -974,6 +974,10 @@ button { font:inherit; }
 }
 .stage {
   background-color: transparent !important;
+  background-image: var(--sp-stage-overlay), var(--sp-stage-texture) !important;
+  background-size: cover, cover !important;
+  background-position: center, center !important;
+  background-repeat: no-repeat, no-repeat !important;
   box-shadow: none !important;
 }
 
