@@ -1287,3 +1287,503 @@ button { font:inherit; }
   }
 }
 
+/* skins-pro devices-filter + security layout patch */
+.filter-bar {
+  display:flex;
+  gap:var(--sp-space-sm);
+  align-items:center;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+.filter-select {
+  min-height:36px;
+  padding:0 var(--sp-space-lg) 0 var(--sp-space-sm);
+  border:var(--sp-border-width) solid var(--sp-border-glass);
+  border-radius:var(--sp-radius-pill);
+  background:var(--sp-glass-light, var(--sp-glass-bg));
+  color:var(--sp-text-stage, var(--sp-text-main, #1a2238));
+  font:inherit;
+  font-size:var(--sp-font-xs);
+  font-weight:600;
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  -webkit-appearance:none;
+  appearance:none;
+  outline:none;
+  cursor:pointer;
+  min-width:120px;
+  box-sizing:border-box;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpath fill='%23FFF0E0' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 8px center;
+  background-size:14px;
+}
+.filter-select option {
+  color:var(--sp-text-stage, #1a2238);
+  background:var(--sp-panel-bg, #0C1020);
+}
+.action-btn {
+  min-height:36px;
+  box-sizing:border-box;
+  border:var(--sp-border-width) solid var(--sp-border-glass);
+  border-radius:var(--sp-radius-pill);
+  padding:0 14px;
+  background:var(--sp-glass-light, var(--sp-glass-bg));
+  color:var(--sp-text-stage, var(--sp-text-main, #1a2238));
+  cursor:pointer;
+  font:inherit;
+  font-size:var(--sp-font-xs);
+  font-weight:600;
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  transition:background .2s ease,color .2s ease;
+}
+.action-btn:hover {
+  background:var(--sp-accent-alpha, var(--sp-accent-green-alpha, rgba(0,0,0,.08)));
+  color:var(--sp-accent, var(--sp-text-stage, #1a2238));
+}
+
+.devices.security-grid {
+  display:flex;
+  flex-direction:column;
+  gap:var(--sp-space-md);
+  grid-template-columns:unset;
+}
+.security-cameras {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:var(--sp-space-sm);
+}
+.security-devices {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+  gap:var(--sp-space-sm);
+}
+.security-grid {
+  display:flex;
+  flex-direction:column;
+  gap:var(--sp-space-md);
+}
+
+.mc-app[data-view="security"] .page-shell,
+.mc-app[data-view="scenes"] .page-shell {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+.mc-app[data-view="security"] .camera-card,
+.mc-app[data-view="security"] .security-grid .device,
+.mc-app[data-view="scenes"] .devices-page-grid .device {
+  box-shadow: none !important;
+  backdrop-filter: blur(14px) saturate(130%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(130%) !important;
+  background: var(--sp-glass-bg, rgba(245, 240, 232, 0.62)) !important;
+  border: 1px solid var(--sp-border-glass, rgba(139, 115, 85, 0.28)) !important;
+  color: var(--sp-text-stage, var(--sp-text-dark, #1a2238)) !important;
+}
+.mc-app[data-view="security"] .security-grid .device .item-img,
+.mc-app[data-view="scenes"] .devices-page-grid .device .item-img {
+  box-shadow: none !important;
+  border: 2px solid var(--sp-border-device, rgba(139, 115, 85, 0.28)) !important;
+}
+.mc-app[data-view="security"] .camera-card .device-name,
+.mc-app[data-view="security"] .camera-card .muted,
+.mc-app[data-view="security"] .camera-card .status,
+.mc-app[data-view="security"] .security-grid .device .device-name,
+.mc-app[data-view="security"] .security-grid .device .state-word,
+.mc-app[data-view="security"] .security-grid .device .muted,
+.mc-app[data-view="scenes"] .devices-page-grid .device .device-name,
+.mc-app[data-view="scenes"] .devices-page-grid .device .state-word,
+.mc-app[data-view="scenes"] .devices-page-grid .device .muted {
+  color: var(--sp-text-stage, var(--sp-text-dark, #1a2238)) !important;
+  text-shadow: none !important;
+}
+.mc-app[data-view="security"] .security-grid .device .status,
+.mc-app[data-view="scenes"] .devices-page-grid .device .status {
+  background: rgba(0, 0, 0, 0.10) !important;
+  color: var(--sp-text-stage, var(--sp-text-dark, #1a2238)) !important;
+}
+.mc-app[data-view="scenes"] .devices-page-grid .device .muted,
+.mc-app[data-view="security"] .camera-card .muted,
+.mc-app[data-view="security"] .security-grid .device .muted {
+  color: var(--sp-text-stage-muted, var(--sp-text-muted, rgba(44, 44, 44, 0.72))) !important;
+}
+/* end skins-pro devices-filter + security layout patch */
+
+/* skins-pro golden-spatula polish v1 */
+/* 金铲铲/云顶：金黄电竞磨砂侧栏 + 右侧卡去阴影；场景/安全页高对比奶油字 */
+:host {
+  --sp-sidebar-width: 212px !important;
+  --sp-text-stage: #FFF7DB !important;
+  --sp-text-stage-muted: rgba(255, 247, 219, 0.84) !important;
+  --sp-sidebar-bg: linear-gradient(165deg, rgba(255, 214, 107, 0.22), rgba(12, 16, 36, 0.58) 48%, rgba(46, 139, 255, 0.16)) !important;
+  --sp-sidebar-text: #FFF7DB !important;
+  --sp-sidebar-text-muted: rgba(255, 247, 219, 0.82) !important;
+  --sp-sidebar-active-bg: rgba(255, 214, 107, 0.26) !important;
+  --sp-sidebar-active-text: #FFD66B !important;
+  --sp-glass-bg: rgba(14, 18, 40, 0.42) !important;
+  --sp-panel-bg: rgba(14, 18, 40, 0.48) !important;
+  --sp-card-bg: linear-gradient(145deg, rgba(255, 214, 107, 0.14), rgba(12, 16, 36, 0.46) 58%, rgba(46, 139, 255, 0.10)) !important;
+  --sp-border-glass: rgba(255, 214, 107, 0.28) !important;
+  --sp-shadow-glass: none !important;
+  --sp-shadow-card: none !important;
+  --sp-shadow-scene: none !important;
+  --sp-shadow-md: none !important;
+  --sp-shadow-lg: none !important;
+  --sp-shadow-xl: none !important;
+  --sp-shadow-device: none !important;
+  --sp-shadow-sm: none !important;
+}
+
+/* 侧栏：半透明金蓝磨砂 + 高对比字 + 排版防挤 */
+.sidebar {
+  background: linear-gradient(165deg, rgba(255, 214, 107, 0.24), rgba(12, 16, 36, 0.56) 50%, rgba(46, 139, 255, 0.18)) !important;
+  border: 1px solid rgba(255, 214, 107, 0.34) !important;
+  box-shadow: none !important;
+  backdrop-filter: blur(28px) saturate(165%) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(165%) !important;
+  padding: 12px 10px !important;
+  gap: 6px !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+}
+.sidebar:hover {
+  box-shadow: none !important;
+}
+.profile {
+  gap: 10px !important;
+  margin: 2px 0 10px !important;
+  padding: 0 2px !important;
+  min-width: 0 !important;
+  align-items: center !important;
+}
+.profile .meta {
+  min-width: 0 !important;
+  flex: 1 1 auto !important;
+  overflow: hidden !important;
+}
+.profile .meta h3,
+.sidebar .profile h3 {
+  color: #FFF7DB !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55) !important;
+  font-weight: 800 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  font-size: 14px !important;
+  line-height: 1.25 !important;
+}
+.profile .meta .muted,
+.sidebar .muted {
+  color: rgba(255, 247, 219, 0.82) !important;
+  opacity: 1 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45) !important;
+  font-weight: 650 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+.profile-img {
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  min-height: 44px !important;
+  max-width: 44px !important;
+  max-height: 44px !important;
+  border-color: rgba(255, 214, 107, 0.55) !important;
+  box-shadow: none !important;
+  flex-shrink: 0 !important;
+}
+.menu {
+  gap: 4px !important;
+  min-height: 0 !important;
+  overflow: auto !important;
+  padding-right: 2px !important;
+}
+.nav-button,
+.sidebar .nav-button {
+  min-height: 36px !important;
+  padding: 0 8px !important;
+  gap: 8px !important;
+  color: rgba(255, 247, 219, 0.90) !important;
+  font-weight: 750 !important;
+  font-size: 13px !important;
+  opacity: 1 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
+  border-radius: 14px !important;
+}
+.nav-button ha-icon,
+.nav-button .icon,
+.sidebar .nav-button .icon {
+  color: inherit !important;
+  opacity: 1 !important;
+  width: 18px !important;
+  flex-shrink: 0 !important;
+}
+.nav-button:hover,
+.nav-button.active,
+.sidebar .nav-button:hover,
+.sidebar .nav-button.active {
+  color: #FFD66B !important;
+  background: rgba(255, 214, 107, 0.26) !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 214, 107, 0.42) !important;
+}
+.sidebar-art {
+  aspect-ratio: 1 !important;
+  max-height: 112px !important;
+  min-height: 72px !important;
+  flex-shrink: 0 !important;
+  margin-top: auto !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(255, 214, 107, 0.30) !important;
+  box-shadow: none !important;
+}
+.sidebar-art img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  display: block !important;
+}
+
+/* 首页右侧信息卡：金黄电竞磨砂、去掉阴影 */
+.glass-card,
+.time-card,
+.panel-energy,
+.panel-environment,
+.panel-scenes,
+.maintenance-card,
+.side .glass-card,
+.side .time-card {
+  background: linear-gradient(145deg, rgba(255, 214, 107, 0.16), rgba(12, 16, 36, 0.48) 55%, rgba(46, 139, 255, 0.12)) !important;
+  border: 1px solid rgba(255, 214, 107, 0.26) !important;
+  backdrop-filter: blur(22px) saturate(155%) !important;
+  -webkit-backdrop-filter: blur(22px) saturate(155%) !important;
+  box-shadow: none !important;
+  color: #FFF7DB !important;
+}
+.glass-card:hover,
+.time-card:hover,
+.scene:hover {
+  box-shadow: none !important;
+}
+.stage {
+  box-shadow: none !important;
+}
+
+/* 设备/摄像头卡：统一磨砂去阴影 */
+.devices .device,
+.devices-page-grid .device,
+.device:not(.device-on-yellow):not(.device-on-green):not(.device-on-blue):not(.device-on-purple):not(.device-on-red):not(.device-on-brown),
+.devices > .device.device-off,
+.devices-page-grid > .device.device-off,
+.device.tone-yellow.device-off,
+.device.tone-green.device-off,
+.device.tone-blue.device-off,
+.device.tone-purple.device-off,
+.device.tone-red.device-off,
+.device.tone-brown.device-off,
+.camera-card {
+  background: linear-gradient(145deg, rgba(255, 214, 107, 0.14), rgba(12, 16, 36, 0.46) 58%, rgba(46, 139, 255, 0.10)) !important;
+  border: 1px solid rgba(255, 214, 107, 0.22) !important;
+  backdrop-filter: blur(18px) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(140%) !important;
+  box-shadow: none !important;
+  color: #FFF7DB !important;
+}
+.devices > .device.device-off:nth-child(6n+1),
+.devices-page-grid > .device.device-off:nth-child(6n+1),
+.devices > .device.device-off:nth-child(6n+2),
+.devices-page-grid > .device.device-off:nth-child(6n+2),
+.devices > .device.device-off:nth-child(6n+3),
+.devices-page-grid > .device.device-off:nth-child(6n+3),
+.devices > .device.device-off:nth-child(6n+4),
+.devices-page-grid > .device.device-off:nth-child(6n+4),
+.devices > .device.device-off:nth-child(6n+5),
+.devices-page-grid > .device.device-off:nth-child(6n+5),
+.devices > .device.device-off:nth-child(6n+6),
+.devices-page-grid > .device.device-off:nth-child(6n+6),
+.device:hover,
+.camera-card:hover {
+  box-shadow: none !important;
+}
+.devices .device.device-on,
+.devices-page-grid .device.device-on,
+.device-on-yellow,
+.device-on-green,
+.device-on-blue,
+.device-on-purple,
+.device-on-red,
+.device-on-brown {
+  background: linear-gradient(145deg, rgba(255, 214, 107, 0.36), rgba(14, 18, 40, 0.42)) !important;
+  border-color: rgba(255, 214, 107, 0.42) !important;
+  box-shadow: none !important;
+  color: #FFF7DB !important;
+}
+.devices-page-grid .device .item-icon,
+.device .item-img,
+.devices-page-grid .device .item-img,
+.item-img,
+.item-icon {
+  box-shadow: none !important;
+}
+
+/* 场景卡磨砂去阴影 */
+.panel-scenes .scene,
+.scene {
+  background: rgba(14, 18, 40, 0.40) !important;
+  backdrop-filter: blur(12px) saturate(130%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(130%) !important;
+  box-shadow: none !important;
+  color: #FFF7DB !important;
+  border-color: rgba(255, 214, 107, 0.28) !important;
+}
+.room,
+.mc-app[data-view="rooms"] .room {
+  box-shadow: none !important;
+}
+
+/* 设备筛选按钮：深底浅字（覆盖 patch 默认深字） */
+.filter-select,
+.action-btn {
+  color: #FFF7DB !important;
+  background: rgba(14, 18, 40, 0.55) !important;
+  border-color: rgba(255, 214, 107, 0.30) !important;
+}
+.filter-select option {
+  color: #FFF7DB !important;
+  background: #0C1020 !important;
+}
+.action-btn:hover {
+  color: #FFD66B !important;
+  background: rgba(255, 214, 107, 0.22) !important;
+}
+
+/* 场景页：标题 / muted / 列表高对比 */
+.mc-app[data-view="scenes"] .page-header,
+.mc-app[data-view="scenes"] .page-header *,
+.mc-app[data-view="scenes"] .page-shell h1,
+.mc-app[data-view="scenes"] .page-shell h2,
+.mc-app[data-view="scenes"] .page-shell h3 {
+  color: #FFF7DB !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55) !important;
+}
+.mc-app[data-view="scenes"] .page-header h1 {
+  font-weight: 800 !important;
+}
+.mc-app[data-view="scenes"] .page-header .muted,
+.mc-app[data-view="scenes"] .page-header .quote,
+.mc-app[data-view="scenes"] .muted,
+.mc-app[data-view="scenes"] .quote {
+  color: rgba(255, 247, 219, 0.86) !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45) !important;
+  font-weight: 700 !important;
+  opacity: 1 !important;
+}
+.mc-app[data-view="scenes"] .scene,
+.mc-app[data-view="scenes"] .scenes-page .scene,
+.mc-app[data-view="scenes"] .panel-scenes .scene,
+.mc-app[data-view="scenes"] .devices-page-grid .device {
+  color: #FFF7DB !important;
+  background: linear-gradient(145deg, rgba(255, 214, 107, 0.16), rgba(12, 16, 36, 0.50)) !important;
+  border: 1px solid rgba(255, 214, 107, 0.28) !important;
+  box-shadow: none !important;
+}
+.mc-app[data-view="scenes"] .scene .device-name,
+.mc-app[data-view="scenes"] .scene h3,
+.mc-app[data-view="scenes"] .scene .title,
+.mc-app[data-view="scenes"] .scenes-page .device-name,
+.mc-app[data-view="scenes"] .scenes-page h3,
+.mc-app[data-view="scenes"] .devices-page-grid .device .device-name,
+.mc-app[data-view="scenes"] .devices-page-grid .device .state-word {
+  color: #FFF7DB !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+  font-weight: 800 !important;
+}
+.mc-app[data-view="scenes"] .scene .muted,
+.mc-app[data-view="scenes"] .scenes-page .muted,
+.mc-app[data-view="scenes"] .panel-scenes .muted,
+.mc-app[data-view="scenes"] .devices-page-grid .device .muted {
+  color: rgba(255, 247, 219, 0.84) !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45) !important;
+  font-weight: 700 !important;
+}
+.mc-app[data-view="scenes"] .devices-page-grid .device .status {
+  background: rgba(255, 214, 107, 0.18) !important;
+  color: #FFF7DB !important;
+}
+.mc-app[data-view="scenes"] .scene ha-icon,
+.mc-app[data-view="scenes"] .scene .icon,
+.mc-app[data-view="scenes"] .scenes-page ha-icon {
+  color: #FFD66B !important;
+  opacity: 1 !important;
+}
+.mc-app[data-view="scenes"] .chip,
+.mc-app[data-view="scenes"] .chip-group .chip {
+  color: #FFF7DB !important;
+  background: rgba(14, 18, 40, 0.50) !important;
+  border-color: rgba(255, 214, 107, 0.28) !important;
+  font-weight: 700 !important;
+}
+
+/* 安全页：标题 / muted / 列表高对比 */
+.mc-app[data-view="security"] .page-header,
+.mc-app[data-view="security"] .page-header *,
+.mc-app[data-view="security"] .page-shell h1,
+.mc-app[data-view="security"] .page-shell h2,
+.mc-app[data-view="security"] .page-shell h3 {
+  color: #FFF7DB !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55) !important;
+}
+.mc-app[data-view="security"] .page-header h1 {
+  font-weight: 800 !important;
+}
+.mc-app[data-view="security"] .page-header .muted,
+.mc-app[data-view="security"] .page-header .quote,
+.mc-app[data-view="security"] .muted,
+.mc-app[data-view="security"] .quote {
+  color: rgba(255, 247, 219, 0.86) !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45) !important;
+  font-weight: 700 !important;
+  opacity: 1 !important;
+}
+.mc-app[data-view="security"] .camera-card,
+.mc-app[data-view="security"] .security-grid .device {
+  background: linear-gradient(145deg, rgba(255, 214, 107, 0.14), rgba(12, 16, 36, 0.50)) !important;
+  border: 1px solid rgba(255, 214, 107, 0.26) !important;
+  box-shadow: none !important;
+  color: #FFF7DB !important;
+  backdrop-filter: blur(16px) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(140%) !important;
+}
+.mc-app[data-view="security"] .camera-card .device-name,
+.mc-app[data-view="security"] .camera-card .status,
+.mc-app[data-view="security"] .security-grid .device .device-name,
+.mc-app[data-view="security"] .security-grid .device .state-word {
+  color: #FFF7DB !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+  font-weight: 800 !important;
+}
+.mc-app[data-view="security"] .camera-card .muted,
+.mc-app[data-view="security"] .security-grid .device .muted {
+  color: rgba(255, 247, 219, 0.84) !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45) !important;
+  font-weight: 700 !important;
+}
+.mc-app[data-view="security"] .security-grid .device .status,
+.mc-app[data-view="security"] .camera-card .status {
+  background: rgba(255, 214, 107, 0.18) !important;
+  color: #FFF7DB !important;
+}
+.mc-app[data-view="security"] .chip,
+.mc-app[data-view="security"] .chip-group .chip {
+  color: #FFF7DB !important;
+  background: rgba(14, 18, 40, 0.50) !important;
+  border-color: rgba(255, 214, 107, 0.28) !important;
+  font-weight: 700 !important;
+}
+/* end skins-pro golden-spatula polish v1 */
+
