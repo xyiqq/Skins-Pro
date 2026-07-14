@@ -30,8 +30,7 @@
     "person": "person",
     "vacuum": "vacuum",
     "device_tracker": "device_tracker",
-    "update": "update",
-    "garden": "light"
+    "update": "update"
   },
   "author": "xyiqq"
 }
