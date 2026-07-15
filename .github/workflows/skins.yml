@@ -61,7 +61,7 @@ jobs:
             | grep -v '^thumbnails$' | grep -v '^registry$' || true)
           DELETED=$(printf '%s\n%s\n' "$SKIN_DELETED" "$SCREENSHOT_DELETED" | grep -v '^$' | sort -u | tr '\n' ' ' | sed 's/ $//' || true)
           echo "deleted=$DELETED" >> "$GITHUB_OUTPUT"
-          [ -n "$DELETED" ] && echo "Deleted skins: $DELETED"
+          if [ -n "$DELETED" ]; then echo "Deleted skins: $DELETED"; fi
 
       - name: Fetch existing store assets
         run: |
@@ -135,6 +135,18 @@ jobs:
 
           echo "purge_urls=$PURGE_URLS" >> "$GITHUB_OUTPUT"
           echo "Purge URLs: $PURGE_URLS"
+
+      - name: Sync to Cloudflare R2
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: auto
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+        run: |
+          ENDPOINT="https://${R2_ACCOUNT_ID}.r2.cloudflarestorage.com"
+          aws s3 sync store/ "s3://skinspro/store/" --endpoint-url "$ENDPOINT" --delete
+          aws s3 sync screenshots/thumbnails/ "s3://skinspro/screenshots/thumbnails/" --endpoint-url "$ENDPOINT" --delete
+          aws s3 cp screenshots/registry.json "s3://skinspro/screenshots/registry.json" --endpoint-url "$ENDPOINT"
 
       - name: Push store assets to store branch
         run: |

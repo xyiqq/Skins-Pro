@@ -26,13 +26,16 @@ jobs:
           set -euo pipefail
 
           ERRORS_FILE="/tmp/validation-errors.txt"
+          MISMATCH_FILE="/tmp/author-mismatches.txt"
           : > "$ERRORS_FILE"
+          : > "$MISMATCH_FILE"
 
           report_error() {
             echo "::error::$1"
             echo "- $1" >> "$ERRORS_FILE"
           }
 
+          PR_AUTHOR="${{ github.event.pull_request.user.login }}"
           git fetch origin "${{ github.event.pull_request.base.ref }}" --depth=1
 
           mapfile -t changed_files < <(git diff --name-only "origin/${{ github.event.pull_request.base.ref }}...HEAD")
@@ -132,6 +135,8 @@ jobs:
             if [ -z "$author" ]; then
               report_error "Skin '$skin' must define a non-empty author in $strings_file"
               failures=1
+            elif [ "$author" != "$PR_AUTHOR" ]; then
+              echo "$skin|$author" >> "$MISMATCH_FILE"
             fi
           done
 
@@ -166,6 +171,68 @@ jobs:
               errors,
               '',
               '请修复后更新 PR / Please fix these and update your PR.',
+            ].join('\n');
+
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr.number,
+              per_page: 100,
+            });
+
+            const existing = comments.find(c => c.user?.type === 'Bot' && c.body?.includes(marker));
+
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: pr.number,
+                body,
+              });
+            }
+
+      - name: Warn on author mismatch
+        if: success() && !cancelled()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const marker = '<!-- author-mismatch-warning -->';
+
+            let mismatches = '';
+            try {
+              mismatches = fs.readFileSync('/tmp/author-mismatches.txt', 'utf8').trim();
+            } catch (e) {
+              mismatches = '';
+            }
+
+            if (!mismatches) {
+              core.info('No author mismatches detected.');
+              return;
+            }
+
+            const pr = context.payload.pull_request;
+            const author = pr.user.login;
+
+            const lines = mismatches.split('\n').map(line => {
+              const [skin, skinAuthor] = line.split('|');
+              return `- **${skin}** (author: ${skinAuthor})`;
+            }).join('\n');
+
+            const body = [
+              marker,
+              `@${author} 你修改了其他作者创建的皮肤 / You modified skins created by other authors:`,
+              '',
+              lines,
+              '',
+              '请在 PR 描述中说明改动内容，例如修复了什么问题 / Please describe what you changed in the PR description, e.g. what issue you fixed.',
             ].join('\n');
 
             const comments = await github.paginate(github.rest.issues.listComments, {

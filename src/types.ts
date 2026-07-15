@@ -325,6 +325,7 @@ export type TranslationKey =
   | 'groupMedia'
   | 'groupSecurity'
   | 'groupOthers'
+  | 'groupCleaning'
   | 'otherGroup'
   | 'noEntities'
   | 'areaOccupied'

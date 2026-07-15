@@ -20,6 +20,7 @@ const GROUP_LABELS: Record<string, TranslationKey> = {
   covers: 'groupCovers',
   media: 'groupMedia',
   security: 'groupSecurity',
+  cleaning: 'groupCleaning',
   others: 'groupOthers',
 };
 

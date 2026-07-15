@@ -111,6 +111,7 @@ const en: Record<TranslationKey, string> = {
   groupMedia: 'Media',
   groupSecurity: 'Security',
   groupOthers: 'Others',
+  groupCleaning: 'Cleaning',
   otherGroup: 'Other',
   noEntities: 'No entities',
   areaOccupied: 'Occupied',
