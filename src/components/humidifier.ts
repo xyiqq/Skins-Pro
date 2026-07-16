@@ -29,7 +29,7 @@ export function renderHumidifierCard(
 
   if (!stateObj) {
     return html`<button class="device device-off" @click=${() => onHandleAction(device.entityId, 'more-info')}>
-      <div class="device-top">${renderImage(config, assetKey, device.name, 'item-img')}<div class="tag-stack"><div class="status">${deviceStateLabel(device.state, language)}</div></div></div>
+      <div class="device-top">${renderImage(config, assetKey, device.name, 'item-img')}<div class="tag-stack"><div class="status">${deviceStateLabel(device.state, language, hass, 'humidifier')}</div></div></div>
       <div class="device-copy"><p class="device-name">${device.name}</p><p class="muted">${device.subtitle}</p></div>
     </button>`;
   }
@@ -47,7 +47,7 @@ export function renderHumidifierCard(
   const action = a.action as string | undefined;
 
   const statusClass = isOn ? `device-on-${device.color}` : (stateObj.state === 'unavailable' ? 'device-unavailable' : 'device-off');
-  const stateLabel = deviceStateLabel(stateObj.state, language);
+  const stateLabel = deviceStateLabel(stateObj.state, language, hass, 'humidifier');
   const lastTime = stateObj.last_changed ? formatRelativeTime(new Date(stateObj.last_changed), language) : device.subtitle;
 
   const actionLabel = (() => {

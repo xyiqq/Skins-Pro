@@ -98,8 +98,6 @@ export const DEFAULT_CONFIG: DashboardConfig = {
   energy: {
     entity: 'sensor.energy_cost_today',
     unit: 'kWh',
-    compare_text_zh: '较昨日',
-    compare_text_en: 'vs yesterday',
   },
   media_player: {
     entity: '',

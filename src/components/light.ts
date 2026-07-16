@@ -54,7 +54,7 @@ export function renderLightCard(
 
   if (!stateObj) {
     return html`<button class="device device-off" @click=${() => onHandleAction(device.entityId, 'more-info')}>
-      <div class="device-top">${renderImage(config, assetKey, device.name, 'item-img')}<div class="tag-stack"><div class="status">${deviceStateLabel(device.state, language)}</div></div></div>
+      <div class="device-top">${renderImage(config, assetKey, device.name, 'item-img')}<div class="tag-stack"><div class="status">${deviceStateLabel(device.state, language, hass, 'light')}</div></div></div>
       <div class="device-copy"><p class="device-name">${device.name}</p><p class="muted">${device.subtitle}</p></div>
     </button>`;
   }
@@ -77,7 +77,7 @@ export function renderLightCard(
   const maxM = (a.max_mireds as number) ?? DEFAULT_MAX_MIREDS;
 
   const statusClass = isOn ? `device-on-${device.color}` : (stateObj.state === 'unavailable' ? 'device-unavailable' : 'device-off');
-  const stateLabel = deviceStateLabel(stateObj.state, language);
+  const stateLabel = deviceStateLabel(stateObj.state, language, hass, 'light');
   const lastTime = stateObj.last_changed
     ? formatRelativeTime(new Date(stateObj.last_changed), language)
     : device.subtitle;

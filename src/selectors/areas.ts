@@ -23,8 +23,8 @@ const DOMAIN_GROUP_MAP: Record<string, string> = {
   media_player: 'media',
   lock: 'security',
   alarm_control_panel: 'security',
-  vacuum: 'others',
-  lawn_mower: 'others',
+  vacuum: 'cleaning',
+  lawn_mower: 'cleaning',
 };
 
 const GROUP_LABEL_KEY: Record<string, TranslationKey> = {
@@ -34,6 +34,7 @@ const GROUP_LABEL_KEY: Record<string, TranslationKey> = {
   covers: 'groupCovers',
   media: 'groupMedia',
   security: 'groupSecurity',
+  cleaning: 'groupCleaning',
   others: 'groupOthers',
 };
 

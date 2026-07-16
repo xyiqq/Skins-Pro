@@ -31,7 +31,7 @@ export function renderWaterHeaterCard(
 
   if (!stateObj) {
     return html`<button class="device device-off" @click=${() => onHandleAction(device.entityId, 'more-info')}>
-      <div class="device-top">${renderImage(config, assetKey, device.name, 'item-img')}<div class="tag-stack"><div class="status">${deviceStateLabel(device.state, language)}</div></div></div>
+      <div class="device-top">${renderImage(config, assetKey, device.name, 'item-img')}<div class="tag-stack"><div class="status">${deviceStateLabel(device.state, language, hass, 'water_heater')}</div></div></div>
       <div class="device-copy"><p class="device-name">${device.name}</p><p class="muted">${device.subtitle}</p></div>
     </button>`;
   }
@@ -66,7 +66,7 @@ export function renderWaterHeaterCard(
       <div class="device-top">
         ${renderImage(config, assetKey, device.name, 'item-img')}
         <div class="tag-stack">
-          <div class="status" style="font-size:var(--sp-font-4xs);font-weight:700">${currentTemp !== undefined ? tempDisplay(currentTemp) : deviceStateLabel(stateObj.state, language)}</div>
+          <div class="status" style="font-size:var(--sp-font-4xs);font-weight:700">${currentTemp !== undefined ? tempDisplay(currentTemp) : deviceStateLabel(stateObj.state, language, hass, 'water_heater')}</div>
         </div>
       </div>
       <div class="device-copy">

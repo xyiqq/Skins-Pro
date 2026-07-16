@@ -20,7 +20,7 @@ const ALARM_STATE_LABELS: Record<string, TranslationKey> = {
   disarming: 'alarmDisarming',
 };
 
-function alarmStateLabel(state: string, language: Language): string {
+export function alarmStateLabel(state: string, language: Language): string {
   const key = ALARM_STATE_LABELS[state];
   return key ? t(language, key) : state;
 }

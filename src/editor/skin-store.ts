@@ -3,7 +3,7 @@ import type { Language } from '../i18n';
 import { t, clearSkinMetadata } from '../utils';
 import { deepClone, fire, type DashboardConfigRecord } from './config';
 
-export const CDN_STORE = 'https://cdn.jsdelivr.net/gh/ha-china/Skins-Pro@store';
+export const CDN_STORE = 'https://skins.hachina.dpdns.org';
 export const STATS_API = 'https://hachina.dpdns.org';
 
 const SKIN_DEP_URL = 'https://github.com/ha-china/skins-pro-hass';

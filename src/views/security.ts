@@ -6,6 +6,7 @@ import type { RenderContext } from '../render/context';
 import { renderPageShell } from '../components/page-shell';
 import { renderImage } from '../render/context';
 import { assetKeyForDomain, deviceStateLabel, selectedSkin, t } from '../utils';
+import { alarmStateLabel } from '../components/alarm-control-panel';
 import { setAlarmMode } from '../components/alarm-code-dialog';
 
 const SECURITY_TOGGLE_DOMAINS = new Set([
@@ -44,7 +45,8 @@ function renderSecurityCards(ctx: RenderContext): TemplateResult | typeof nothin
   const skin = selectedSkin(ctx.config);
 
   const cameraCards = cameras.map(entity => {
-    const stateLabel = deviceStateLabel(entity.state, ctx.language);
+    const domain = entity.entity_id.split('.')[0] || 'camera';
+    const stateLabel = deviceStateLabel(entity.state, ctx.language, ctx.hass, domain);
     const stateObj = ctx.hass.states?.[entity.entity_id];
     const entityPicture = String(stateObj?.attributes?.entity_picture || '');
     const accessToken = String(stateObj?.attributes?.access_token || '');
@@ -71,13 +73,15 @@ function renderSecurityCards(ctx: RenderContext): TemplateResult | typeof nothin
   });
 
   const otherCards = others.map((entity, index) => {
-    const stateLabel = deviceStateLabel(entity.state, ctx.language);
     const domain = entity.entity_id.split('.')[0] || 'sensor';
+    const isAlarm = domain === 'alarm_control_panel';
+    const stateLabel = isAlarm
+      ? alarmStateLabel(entity.state, ctx.language)
+      : deviceStateLabel(entity.state, ctx.language, ctx.hass, domain);
     const assetKey = assetKeyForDomain(skin, domain);
     const tones: RenderedDevice['color'][] = ['red', 'green', 'blue', 'purple', 'yellow', 'brown'];
     const statusClass = entity.state === 'unavailable' ? 'device-unavailable' : `device-on-${tones[index % tones.length]}`;
     const togglable = SECURITY_TOGGLE_DOMAINS.has(domain);
-    const isAlarm = domain === 'alarm_control_panel';
 
     let control: TemplateResult;
     if (isAlarm) {

@@ -29,7 +29,7 @@ function renderRealAutomations(ctx: RenderContext): TemplateResult | typeof noth
   const assetKey = assetKeyForDomain(skin, 'automation');
 
   return html`${automations.map((automation, index) => {
-    const stateLabel = deviceStateLabel(automation.state, ctx.language);
+    const stateLabel = deviceStateLabel(automation.state, ctx.language, ctx.hass, 'automation');
     const active = automation.state === 'on';
     const tones: Array<'green' | 'blue' | 'purple' | 'yellow'> = ['green', 'blue', 'purple', 'yellow'];
     const statusClass = active ? `device-on-${tones[index % tones.length]}` : 'device-off';

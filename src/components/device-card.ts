@@ -79,7 +79,7 @@ export function renderDeviceCard(
     return renderAlarmControlPanelCard(config, hass, device, language, onHandleAction);
   }
 
-  const stateLabel = deviceStateLabel(device.state, language);
+  const stateLabel = deviceStateLabel(device.state, language, hass, device.detail);
   const active = ['on', 'playing', 'paused', 'cool', 'heat', 'armed', 'locked', 'open'].includes(device.state);
   const statusClass = active ? `device-on-${device.color}` : (device.state === 'unavailable' ? 'device-unavailable' : 'device-off');
   const skin = selectedSkin(config);

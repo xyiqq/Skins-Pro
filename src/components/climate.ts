@@ -34,7 +34,7 @@ export function renderClimateCard(
 
   if (!stateObj) {
     return html`<button class="device device-off" @click=${() => onHandleAction(device.entityId, 'more-info')}>
-      <div class="device-top">${renderImage(config, assetKey, device.name, 'item-img')}<div class="tag-stack"><div class="status">${deviceStateLabel(device.state, language)}</div></div></div>
+      <div class="device-top">${renderImage(config, assetKey, device.name, 'item-img')}<div class="tag-stack"><div class="status">${deviceStateLabel(device.state, language, hass, 'climate')}</div></div></div>
       <div class="device-copy"><p class="device-name">${device.name}</p><p class="muted">${hass.states?.[device.entityId]?.last_changed ? formatRelativeTime(new Date(hass.states[device.entityId]!.last_changed), language) : device.subtitle}</p></div>
     </button>`;
   }

@@ -26,6 +26,7 @@ export interface HomeAssistant {
     ) => Promise<() => Promise<void>>;
   };
   auth?: { data?: { access_token?: string } };
+  themes?: { darkMode?: boolean };
 }
 
 export interface AreaRegistryEntry {
@@ -325,6 +326,7 @@ export type TranslationKey =
   | 'groupMedia'
   | 'groupSecurity'
   | 'groupOthers'
+  | 'groupCleaning'
   | 'otherGroup'
   | 'noEntities'
   | 'areaOccupied'
@@ -337,6 +339,7 @@ export type TranslationKey =
   | 'enabled'
   | 'disabled'
   | 'snapshot'
+  | 'toggleTheme'
   | 'loadingRegistry'
   | 'noAreas'
   | 'automationsSubtitle'

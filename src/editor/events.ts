@@ -9,7 +9,7 @@ import {
   type DashboardConfigRecord,
 } from './config';
 import { parseNavSave } from './nav-dialog';
-import { downloadSkin, fetchSkinThemes, fetchSkinStats, toggleLike, isSkinLiked, skinStats, removeSkin, type SkinStoreState } from './skin-store';
+import { CDN_STORE, downloadSkin, fetchSkinThemes, fetchSkinStats, toggleLike, isSkinLiked, skinStats, removeSkin, type SkinStoreState } from './skin-store';
 import { uploadBackgroundImage } from './bg-upload';
 import { ENTITY_PICKER_TAG } from './pickers';
 
@@ -261,6 +261,18 @@ function bindSkinStore(host: EditorHost): void {
       if (countSpan) countSpan.textContent = String(result.total);
       btn.classList.toggle('liked', result.liked);
       btn.innerHTML = `${result.liked ? '❤️' : '🤍'} <span class="store-like-count">${result.total}</span>`;
+    });
+  });
+  host.root.querySelectorAll<HTMLElement>('.store-thumb').forEach(img => {
+    img.addEventListener('click', () => {
+      const skin = (img.closest('[data-store-theme]') as HTMLElement)?.getAttribute('data-store-theme');
+      if (!skin) return;
+      host.root.querySelector('#sp-lightbox')?.remove();
+      const overlay = document.createElement('div');
+      overlay.id = 'sp-lightbox';
+      overlay.style.cssText = `position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.7) url("${CDN_STORE}/screenshots/${skin}.png") no-repeat center/contain;cursor:pointer`;
+      overlay.addEventListener('click', () => overlay.remove());
+      host.root.appendChild(overlay);
     });
   });
 }

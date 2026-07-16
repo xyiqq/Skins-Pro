@@ -94,6 +94,6 @@ const DEVICE_DOMAIN_GROUP: Record<string, string> = {
   media_player: 'media',
   lock: 'security',
   alarm_control_panel: 'security',
-  vacuum: 'others',
-  lawn_mower: 'others',
+  vacuum: 'cleaning',
+  lawn_mower: 'cleaning',
 };

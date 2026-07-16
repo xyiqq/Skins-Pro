@@ -57,6 +57,8 @@ export interface RenderContext {
   setFilterType: (t: string) => void;
   setHideUnassigned: (h: boolean) => void;
   setSelectedFloor: (f: string) => void;
+
+  resolvedTheme: 'light' | 'dark';
 }
 
 export function renderImage(

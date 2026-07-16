@@ -68,7 +68,7 @@ export function renderHomeView(
   return html`
     <div class="stage-grid">
       <div
-        style="position:absolute;top:var(--sp-space-sm,8px);left:${window.matchMedia('(orientation: portrait)').matches ? '50%' : '37.5%'};transform:translateX(-50%);z-index:10;display:flex;align-items:center;gap:10px;width:${window.matchMedia('(orientation: portrait)').matches ? '50%' : '37.5%'};padding:10px 20px;border-radius:var(--sp-radius-pill,999px);background:var(--sp-glass-bg,rgba(255,255,255,0.12));border:1px solid var(--sp-glass-border,rgba(255,255,255,0.15));cursor:pointer;color:var(--sp-text-secondary,rgba(255,255,255,0.5));font-size:15px;"
+        style="position:absolute;top:var(--sp-space-sm,8px);${window.matchMedia('(orientation: portrait)').matches ? 'right:var(--sp-space-sm,8px);width:auto;max-width:60%;' : 'left:37.5%;transform:translateX(-50%);width:37.5%;'}z-index:10;display:flex;align-items:center;gap:10px;padding:10px 20px;border-radius:var(--sp-radius-pill,999px);background:var(--sp-glass-bg,rgba(255,255,255,0.12));border:1px solid var(--sp-glass-border,rgba(255,255,255,0.15));cursor:pointer;color:var(--sp-text-secondary,rgba(255,255,255,0.5));font-size:15px;"
         @click=${() => ctx.onOpenSearch()}
       >
         <ha-icon icon="mdi:magnify" style="--mdc-icon-size:20px;flex-shrink:0;"></ha-icon>

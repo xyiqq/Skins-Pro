@@ -22,6 +22,9 @@ import {
   formatNumber,
   getTranslate,
   normalizeLanguage,
+  selectedSkin,
+  setDarkAssetSkin,
+  skinSupportsDark,
   stateValue,
   weatherIcon,
   t,
@@ -31,7 +34,6 @@ import {
   toggleEntity,
   turnOffAreaType as turnOffAreaTypeAction,
   loadSkinMetadata,
-  selectedSkin,
   BUNDLED_SKINS,
 } from './utils';
 
@@ -310,6 +312,8 @@ export class SkinsProCard extends LitElement {
 
   private _buildContext(language: Language, translate: (key: TranslationKey) => string): RenderContext {
     const hass = this._hass!;
+    const resolvedTheme = this._resolveTheme();
+    setDarkAssetSkin(resolvedTheme === 'dark' ? selectedSkin(this._config) : null);
     return {
       config: this._config!,
       hass,
@@ -346,6 +350,7 @@ export class SkinsProCard extends LitElement {
       setFilterType: (t) => { this._filterType = t; },
       setHideUnassigned: (h) => { this._hideUnassigned = h; },
       setSelectedFloor: (f) => { this._selectedFloor = f; },
+      resolvedTheme: this._resolveTheme(),
     };
   }
 
@@ -422,11 +427,21 @@ export class SkinsProCard extends LitElement {
   protected updated(): void {
     applyThemeVariables(this._host(), this._config);
     this._applyLayout();
+    this._applyThemeAttribute();
     if (this._config?.fullscreen && !this._autoFullscreenDone) {
       this._autoFullscreenDone = true;
       applyFullscreenHeight(this._host());
       toggleKiosk();
     }
+  }
+
+  private _resolveTheme(): 'light' | 'dark' {
+    if (!skinSupportsDark(selectedSkin(this._config))) return 'light';
+    return this._hass?.themes?.darkMode ? 'dark' : 'light';
+  }
+
+  private _applyThemeAttribute(): void {
+    this.setAttribute('data-sp-theme', this._resolveTheme());
   }
 
   private handleAction(entityId: string, action: string): void {

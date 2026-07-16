@@ -40,7 +40,7 @@ Click the button above, or manually:
 
 ![Store](screenshots/store.gif)
 
-Download additional skins directly from the card editor. Clicking **Download** fetches the skin package from the [store branch](https://github.com/ha-china/Skins-Pro/tree/store) via CDN and installs it to your HA `www/` directory via the [`skins-pro-hass`](https://github.com/ha-china/skins-pro-hass) integration.
+Download additional skins directly from the card editor. Clicking **Download** fetches the skin package from the CDN and installs it to your HA `www/` directory via the [`skins-pro-hass`](https://github.com/ha-china/skins-pro-hass) integration.
 
 > The integration is only needed for downloading skins from the store. If you only use the built-in **modern** skin, you can skip installing it.
 
@@ -48,13 +48,15 @@ Download additional skins directly from the card editor. Clicking **Download** f
 
 | Skin | Style | Features |
 |---|---|---|
-| **modern** (default) | White glassmorphism | Frosted glass, high-res images, clean blue-white palette |
+| **modern** (default) | White glassmorphism | Frosted glass, high-res images, clean blue-white palette, built-in dark mode |
 
 > All other skins (AEON, AEON_glass, visionOS, minecraft, and community submissions) are available via the **Skin Store** built into the card editor. Click the store button to browse and download.
 
 ## Preview
 
 ![modern](screenshots/modern.png)
+
+![modern dark](screenshots/modern-dark.png)
 
 ![Advanced Feature](screenshots/Advanced_Feature.png)
 
@@ -77,6 +79,8 @@ Download additional skins directly from the card editor. Clicking **Download** f
 - 📷 Camera snapshot on homepage
 - 🌡️ Environment sensors display
 - 🌐 Auto CN/EN bilingual switching
+- 🌙 Dark mode — auto sunset/sunrise switching, or tap the clock to toggle manually (modern skin)
+- 🔍 Global search — fuzzy match devices, filter by type
 - ↔️ Fullscreen Kiosk mode
 - 🖼️ Use HA area pictures as room backgrounds
 - 🎨 Custom background image upload
@@ -104,6 +108,20 @@ skins-pro/
     room-*.jpg              # Room image, recommended width ≥ 1200px
     icon-*.jpg              # Device icon, recommended longest edge ≥ 300px
 ```
+
+### Dark Mode Assets (optional)
+
+To support dark mode, place `-dark` variants alongside the originals — same extension, with `-dark` appended before the extension:
+
+```
+skins-pro/your-skin-name/
+  background-dark.jpg      # Dark variant of background.jpg
+  icon-light-dark.jpg      # Dark variant of icon-light.jpg
+  room-living-dark.jpg     # Dark variant of room-living.jpg
+  ...                      # One -dark file per original
+```
+
+Also add `:host([data-sp-theme="dark"]) { ... }` in `theme.css` to override CSS variables for dark colors. See `skins-pro/modern/theme.css` for a reference implementation.
 
 ### Image Processing on Build
 

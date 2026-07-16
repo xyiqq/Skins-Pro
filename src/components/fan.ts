@@ -19,7 +19,7 @@ export function renderFanCard(
 
   if (!stateObj) {
     return html`<button class="device device-off" @click=${() => onHandleAction(device.entityId, 'more-info')}>
-      <div class="device-top">${renderImage(config, assetKey, device.name, 'item-img')}<div class="tag-stack"><div class="status">${deviceStateLabel(device.state, language)}</div></div></div>
+      <div class="device-top">${renderImage(config, assetKey, device.name, 'item-img')}<div class="tag-stack"><div class="status">${deviceStateLabel(device.state, language, hass, 'fan')}</div></div></div>
       <div class="device-copy"><p class="device-name">${device.name}</p><p class="muted">${device.subtitle}</p></div>
     </button>`;
   }
@@ -34,7 +34,7 @@ export function renderFanCard(
   const currentDirection = a.current_direction as string | undefined;
 
   const statusClass = isOn ? `device-on-${device.color}` : (stateObj.state === 'unavailable' ? 'device-unavailable' : 'device-off');
-  const stateLabel = deviceStateLabel(stateObj.state, language);
+  const stateLabel = deviceStateLabel(stateObj.state, language, hass, 'fan');
   const lastTime = stateObj.last_changed ? formatRelativeTime(new Date(stateObj.last_changed), language) : device.subtitle;
 
   const doService = (service: string, data: Record<string, unknown>) => {
